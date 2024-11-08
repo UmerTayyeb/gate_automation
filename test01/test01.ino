@@ -67,18 +67,13 @@ void loop() {
       Serial.println("stop!");
       stopMotor(1000);
 
-    } if(isRunningClockwise && pinState2 == LOW){
-        Serial.println("Stopping clockwise");
-        stopMotor(0);
-        delay(1000);
+    } if(isRunningClockwise && pinState2 == LOW)||(isRunningAnticlockwise && pinState1 == LOW){
+        Serial.println("Stopping motor immediately");
+        stopMotor(1000);
+        delay(2000);
         return;
 
-    } if(isRunningAnticlockwise && pinState1 == LOW){
-        Serial.println("Stopping Anti-Clockwise");
-        stopMotor(0);
-        delay(1000);
-        return;
-    }
+    } 
   } else if(current > 2.00){
     stopMotor(0);
     delay(1000);

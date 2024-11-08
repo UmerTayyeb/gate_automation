@@ -6,6 +6,8 @@
 
 int forward = 9;
 int reverse = 10;
+int starting_speed = 128;
+int final_speed = 192;
 bool isRunningClockwise = false;
 bool isRunningAnticlockwise = false;
 
@@ -85,7 +87,7 @@ void loop() {
   
   void setMotorSpeed(int motorPin) {
     //pinMode(motorPin, OUTPUT);  // Set the motor pin as an output
-    for (int speed = 100;speed<=200;speed++){
+    for (int speed = starting_speed; speed<=final_speed; speed++){
       analogWrite(motorPin, speed);  // Set the motor speed using PWM
       // Serial.println(speed);
       delay(25);
